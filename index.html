@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SMILE</title>
+<style>
+body {
+    margin:0;
+    background:black;
+    overflow:hidden;
+}
+#start {
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+video {
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:none;
+}
+</style>
+</head>
+<body>
+
+<div id="start">CLICK</div>
+
+<video id="vid">
+    <source src="https://parad1st.github.io/Screamer/video.mp4" type="video/mp4">
+</video>
+
+<script>
+const start = document.getElementById("start");
+const vid = document.getElementById("vid");
+
+start.onclick = () => {
+    document.documentElement.requestFullscreen();
+    start.style.display = "none";
+
+    setTimeout(() => {
+        vid.style.display = "block";
+        vid.volume = 1;
+        vid.muted = false;
+        vid.play();
+    }, 1000);
+};
+</script>
+
+</body>
+</html>
