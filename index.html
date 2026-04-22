@@ -10,7 +10,9 @@ body {
     overflow:hidden;
 }
 #start {
-    position:absolute;
+    position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
     display:flex;
@@ -19,13 +21,13 @@ body {
     color:white;
     font-size:50px;
     cursor:pointer;
+    z-index:10;
 }
 video {
     position:fixed;
     width:100%;
     height:100%;
     object-fit:cover;
-    display:none;
 }
 </style>
 </head>
@@ -41,17 +43,15 @@ video {
 const start = document.getElementById("start");
 const vid = document.getElementById("vid");
 
-start.onclick = () => {
+start.addEventListener("click", () => {
     document.documentElement.requestFullscreen();
+
     start.style.display = "none";
 
-    setTimeout(() => {
-        vid.style.display = "block";
-        vid.volume = 1;
-        vid.muted = false;
-        vid.play();
-    }, 1000);
-};
+    vid.muted = false;
+    vid.volume = 1;
+    vid.play();
+});
 </script>
 
 </body>
