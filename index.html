@@ -7,12 +7,7 @@
 body {
     margin:0;
     background:black;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-size:50px;
+    overflow:hidden;
 }
 video {
     position:fixed;
@@ -26,24 +21,9 @@ video {
 </head>
 <body>
 
-<div>CLICK ANYWHERE</div>
-
-<video id="vid">
+<video autoplay muted loop playsinline>
     <source src="https://parad1st.github.io/Screamer/video.mp4" type="video/mp4">
 </video>
-
-<script>
-const vid = document.getElementById("vid");
-
-// ловим клик по ВСЕЙ странице
-document.body.addEventListener("click", () => {
-    document.documentElement.requestFullscreen();
-
-    vid.muted = false;
-    vid.volume = 1;
-    vid.play();
-});
-</script>
 
 </body>
 </html>
